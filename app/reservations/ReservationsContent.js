@@ -57,7 +57,7 @@ export default function ReservationsPage() {
             {/* Map Section */}
             <div className={styles.mapWrapper}>
                 <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29221.39176378906!2d55.27078280000001!3d25.197196999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43348a67e24b%3A0xff45e502e1ceb7!2sBurj%20Khalifa!5e0!3m2!1sen!2sae!4v1652882878142!5m2!1sen!2sae"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.9069923498755!2d78.53083490000002!3d17.368207899999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99c87641ae2b%3A0x12d2fbd2166a2a2!2sJismat%20Jail%20Mandi%20Dilshuknagar!5e0!3m2!1sen!2sin!4v1771432396774!5m2!1sen!2sin"
                     className={styles.mapFrame}
                     allowFullScreen=""
                     loading="lazy"
