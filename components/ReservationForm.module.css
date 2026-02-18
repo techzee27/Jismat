@@ -1,0 +1,83 @@
+.form,
+.successMessage {
+    background: transparent;
+    padding: 0;
+    border: none;
+    max-width: 100%;
+    margin: 0;
+    box-shadow: none;
+}
+
+.successMessage {
+    text-align: center;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.group {
+    margin-bottom: 20px;
+}
+
+/* Hide labels visually but keep for accessibility if needed, 
+   or we can style them small above inputs. 
+   User image shows placeholders primarily. */
+.label {
+    display: none;
+}
+
+.input,
+.select,
+.textarea {
+    width: 100%;
+    background: #252830;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--white);
+    padding: 18px 24px;
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+    outline: none;
+    background-color: #2d313a;
+    border-color: var(--gold);
+}
+
+.submitBtn {
+    width: 100%;
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 18px;
+    background-color: #e3c08d;
+    /* Muted gold from image */
+    color: #000;
+    border: none;
+}
+
+.submitBtn:hover {
+    background-color: var(--gold);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 576px) {
+
+    .input,
+    .select,
+    .textarea {
+        padding: 14px 18px;
+    }
+}

@@ -1,0 +1,130 @@
+.headerSpacer {
+    height: 100px;
+}
+
+.container {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+.backLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--gold);
+    margin-bottom: 30px;
+    font-weight: 500;
+    transition: opacity 0.3s;
+}
+
+.backLink:hover {
+    opacity: 0.8;
+}
+
+.imageSection {
+    flex: 1;
+    position: relative;
+}
+
+.imageWrapper {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    background-color: var(--bg-section);
+}
+
+.image {
+    object-fit: cover;
+}
+
+.detailsSection {
+    flex: 1;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 20px;
+}
+
+.title {
+    font-family: var(--font-heading);
+    font-size: 36px;
+    color: var(--gold);
+    margin-bottom: 0;
+}
+
+.price {
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.description {
+    font-size: 18px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+.subtitle {
+    color: #fff;
+    font-size: 22px;
+    margin-bottom: 20px;
+    font-family: var(--font-heading);
+}
+
+.ingredientsContainer {
+    background-color: var(--bg-section);
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+}
+
+.ingredientsList {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 16px;
+}
+
+.ingredientItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ddd;
+    font-size: 15px;
+}
+
+.checkIcon {
+    color: var(--gold);
+    flex-shrink: 0;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.orderBtn {
+    width: 100%;
+}
+
+@media (max-width: 992px) {
+    .container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .imageWrapper {
+        height: 350px;
+    }
+}

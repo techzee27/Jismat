@@ -1,0 +1,52 @@
+.button {
+    padding: 12px 24px;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 1px solid transparent;
+}
+
+.primary {
+    background-color: var(--gold);
+    color: var(--dark-navy);
+}
+
+.secondary {
+    background-color: var(--dark-navy);
+    color: var(--gold);
+    border: 1px solid var(--gold);
+}
+
+.outline {
+    background-color: transparent;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+}
+
+.primary:hover {
+    background-color: #b08d42;
+    box-shadow: 0 4px 12px rgba(201, 162, 77, 0.3);
+}
+
+.secondary:hover {
+    background-color: #2a2e3d;
+}
+
+.outline:hover {
+    background-color: rgba(201, 162, 77, 0.1);
+}
+
+@media (max-width: 576px) {
+    .button {
+        width: 100%;
+        padding: 14px 20px;
+    }
+}
