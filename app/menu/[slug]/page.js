@@ -54,7 +54,14 @@ export default async function DishDetails({ params }) {
                     <div className={styles.detailsSection}>
                         <div className={styles.header}>
                             <h1 className={styles.title}>{dish.name}</h1>
-                            <span className={styles.price}>{dish.price} AED</span>
+                            <div className={styles.metaInfo}>
+                                <span className={styles.price}>₹ {dish.price}</span>
+                                {dish.serves && (
+                                    <span className={styles.serving}>
+                                        <span className={styles.servingIcon}>👤</span> Serves {dish.serves}
+                                    </span>
+                                )}
+                            </div>
                         </div>
 
                         <p className={styles.description}>{dish.description}</p>
@@ -72,7 +79,9 @@ export default async function DishDetails({ params }) {
                         </div>
 
                         <div className={styles.actions}>
-                            <Button variant="primary">Add to Reservation</Button>
+                            <Link href="/reservations" style={{ width: '100%' }}>
+                                <Button variant="primary">Add to Reservation</Button>
+                            </Link>
                         </div>
                     </div>
                 </div>

@@ -1,3 +1,4 @@
+/* DishDetails.module.css */
 .headerSpacer {
     height: 100px;
 }
@@ -26,6 +27,8 @@
 .imageSection {
     flex: 1;
     position: relative;
+    width: 100%;
+    /* Ensure full width on mobile stack */
 }
 
 .imageWrapper {
@@ -44,28 +47,49 @@
 
 .detailsSection {
     flex: 1;
+    width: 100%;
 }
 
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 20px;
+    padding-bottom: 24px;
 }
 
 .title {
     font-family: var(--font-heading);
-    font-size: 36px;
-    color: var(--gold);
-    margin-bottom: 0;
+    font-size: 42px;
+    color: #fff;
+    margin-bottom: 14px;
+    line-height: 1.1;
+}
+
+.metaInfo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 .price {
-    font-size: 28px;
+    font-size: 32px;
     font-weight: 700;
-    color: #fff;
+    color: var(--gold);
+    font-family: var(--font-heading);
+}
+
+.serving {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+.servingIcon {
+    filter: invert(0.8);
 }
 
 .description {
@@ -126,5 +150,9 @@
 
     .imageWrapper {
         height: 350px;
+    }
+
+    .title {
+        font-size: 32px;
     }
 }

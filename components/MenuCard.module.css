@@ -1,12 +1,25 @@
+/* MenuCard.module.css */
 .card {
-    background-color: transparent;
+    position: relative;
     width: 100%;
     border-radius: 20px;
     overflow: hidden;
-    position: relative;
-    transition: all 0.3s ease;
+    background: rgba(31, 34, 48, 0.4);
+    /* Semi-transparent section color */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     display: flex;
     flex-direction: column;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+    border-color: rgba(201, 162, 77, 0.3);
+    /* Gold hint on hover */
 }
 
 .cardLink {
@@ -21,83 +34,90 @@
 .imageWrapper {
     position: relative;
     width: 100%;
-    height: 250px;
-    background-color: #f5f5f5;
-    border-bottom-right-radius: 60px;
+    height: 260px;
     overflow: hidden;
-    z-index: 1;
 }
 
 .imageContainer {
     width: 100%;
     height: 100%;
     position: relative;
-    padding: 20px;
 }
 
 .image {
-    object-fit: contain;
-    z-index: 2;
-    transition: transform 0.3s ease;
+    object-fit: cover;
+    transition: transform 0.7s ease;
 }
 
 .card:hover .image {
-    transform: scale(1.05) rotate(2deg);
+    transform: scale(1.1);
 }
 
 .badge {
     position: absolute;
     top: 15px;
     right: 15px;
-    background-color: var(--gold);
-    color: var(--dark-navy);
-    padding: 4px 12px;
-    border-radius: 20px;
+    background: linear-gradient(135deg, var(--gold), #a0813d);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 30px;
     font-size: 11px;
     font-weight: 700;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
     z-index: 3;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(201, 162, 77, 0.4);
 }
 
 .content {
-    background-color: var(--dark-navy);
-    padding: 24px;
-    padding-top: 30px;
-    margin-top: -50px;
-    padding-top: 60px;
-    position: relative;
-    z-index: 0;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    border-top-left-radius: 20px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    padding: 24px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Subtle separator line */
+.content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 24px;
+    right: 24px;
+    height: 1px;
+    background: linear-gradient(90deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.1) 50%,
+            rgba(255, 255, 255, 0) 100%);
 }
 
 .textContent {
-    margin-bottom: 20px;
+    margin-bottom: 24px;
 }
 
 .name {
     font-family: var(--font-heading);
-    font-size: 22px;
-    color: #FFFFFF;
-    margin-bottom: 8px;
+    font-size: 24px;
+    background: linear-gradient(to right, #fff, #e0e0e0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 12px;
     font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
 .description {
-    font-size: 14px;
-    color: #CCCCCC;
-    line-height: 1.5;
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.6;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    font-weight: 300;
 }
 
 .footer {
@@ -105,61 +125,97 @@
     justify-content: space-between;
     align-items: center;
     margin-top: auto;
+    padding-top: 20px;
+}
+
+.priceContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
 .price {
+    font-family: var(--font-heading);
     font-weight: 700;
-    font-size: 20px;
-    color: #FFFFFF;
+    font-size: 24px;
+    color: var(--gold);
+}
+
+.serving {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+}
+
+.servingIcon {
+    font-size: 14px;
+    filter: invert(0.8);
+    /* Make emoji slightly muted */
 }
 
 .detailsBtnWrapper {
     display: flex;
     align-items: center;
-    gap: 10px;
 }
 
-.detailsText {
-    font-size: 12px;
-    color: var(--gold);
-    text-transform: uppercase;
-    font-weight: 600;
-    opacity: 0;
-    transform: translateX(10px);
-    transition: all 0.3s ease;
-}
-
-.card:hover .detailsText {
-    opacity: 1;
-    transform: translateX(0);
-}
+/* Removed detailsText styles */
 
 .orderBtn {
-    background-color: var(--gold);
-    width: 44px;
-    height: 44px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
-    border: none;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(201, 162, 77, 0.4);
-    transition: width 0.3s ease;
+    transition: all 0.4s ease;
+}
+
+.card:hover .orderBtn {
+    background: var(--gold);
+    border-color: var(--gold);
+    transform: rotate(-45deg);
+    box-shadow: 0 0 20px rgba(201, 162, 77, 0.4);
+}
+
+/* Icon inside button styling needs to be handled via parent or direct svg selector if possible, 
+   but since the icon is passed as a child, we rely on the JS color prop mostly. 
+   However, we can force color change with CSS for generic SVGs */
+
+.orderBtn svg {
+    transition: all 0.3s ease;
+    color: var(--gold) !important;
+    /* Force initial color */
+}
+
+.card:hover .orderBtn svg {
+    color: #1a1a1a !important;
+    /* Dark color on hover */
 }
 
 @media (max-width: 576px) {
     .imageWrapper {
-        height: 200px;
+        height: 220px;
     }
 
     .content {
         padding: 20px;
-        padding-top: 50px;
+    }
+
+    .name {
+        font-size: 20px;
+    }
+
+    .price {
+        font-size: 20px;
     }
 
     .detailsText {
         display: none;
-        /* Hide on mobile to save space if needed, or keep */
     }
 }

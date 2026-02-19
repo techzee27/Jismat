@@ -1,78 +1,279 @@
+/* About.module.css */
+
+/* Global Utility */
+.section {
+    padding: 100px 24px;
+    position: relative;
+}
+
 .container {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 60px;
+    gap: 80px;
 }
 
-.imageSection {
-    flex: 1;
-    position: relative;
-    height: 500px;
+.containerColumn {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
 }
 
-.imageWrapper {
+.sectionTitle {
+    font-family: var(--font-heading);
+    font-size: 48px;
+    color: white;
+    line-height: 1.1;
+}
+
+.paragraph {
+    color: var(--text-muted);
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 24px;
+}
+
+.sectionBadge {
+    color: var(--gold);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    display: inline-block;
+}
+
+/* --- 1. HERO SECTION --- */
+.heroSection {
     position: relative;
+    height: 100vh;
     width: 100%;
-    height: 100%;
-    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
-    z-index: 2;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-.imageDecor {
+.heroOverlay {
     position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 100%;
-    height: 100%;
-    border: 2px solid var(--gold);
-    border-radius: 8px;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(0, 0, 0, 0.3) 0%, rgba(18, 20, 28, 0.9) 100%);
+    z-index: 2;
+}
+
+.heroImage {
+    /* Managed by JS/Tailwind styles mostly, but ensure z-index */
     z-index: 1;
 }
 
-.textSection {
+.heroContent {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 0 24px;
+    max-width: 900px;
+}
+
+.heroTitle {
+    font-family: var(--font-heading);
+    font-size: 80px;
+    color: #fff;
+    margin-bottom: 24px;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.heroSubtitle {
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.9);
+    font-style: italic;
+    font-weight: 300;
+}
+
+/* --- 2. LEGACY SECTION --- */
+.legacySection {
+    background-color: #12141C;
+}
+
+.imageWrapper {
+    flex: 1;
+    height: 600px;
+    position: relative;
+    border-radius: 4px;
+}
+
+.frameDecoration {
+    position: absolute;
+    inset: 20px;
+    border: 1px solid rgba(201, 162, 77, 0.5);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.textContent {
     flex: 1;
 }
 
-.quote {
-    font-family: var(--font-heading);
-    font-size: 24px;
-    font-style: italic;
-    color: var(--gold);
-    border-left: 2px solid var(--gold);
-    padding-left: 20px;
-    margin-top: 40px;
+/* --- 3. PROCESS SECTION --- */
+.processSection {
+    padding: 120px 24px;
+    background-color: #0E1016;
+    /* Slightly darker */
 }
 
-.philosophyGrid {
+.processGrid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
-    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.card {
-    padding: 40px;
-    background-color: var(--bg-dark);
+.processCard {
+    background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    transition: transform 0.3s;
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.4s ease;
 }
 
-.card:hover {
+.processCard:hover {
     transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.05);
     border-color: var(--gold);
 }
 
-@media (max-width: 992px) {
+.processIconBox {
+    width: 70px;
+    height: 70px;
+    background: rgba(201, 162, 77, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    color: var(--gold);
+}
+
+.processCard h3 {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 16px;
+}
+
+.processCard p {
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* --- 4. QUOTE SECTION --- */
+.quoteSection {
+    position: relative;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.quoteOverlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2;
+}
+
+.quoteContent {
+    position: relative;
+    z-index: 10;
+    max-width: 900px;
+    text-align: center;
+    padding: 0 24px;
+}
+
+.quoteText {
+    font-family: var(--font-heading);
+    font-size: 42px;
+    color: #fff;
+    line-height: 1.4;
+    margin-bottom: 40px;
+}
+
+.quoteAuthor {
+    font-size: 18px;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+/* --- 5. VALUES SECTION --- */
+.valuesGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    /* Connected border look */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.valueCard {
+    padding: 60px 40px;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    transition: background 0.3s;
+}
+
+.valueCard:last-child {
+    border-right: none;
+}
+
+.valueCard:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.valueCard h3 {
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 16px;
+    font-family: var(--font-heading);
+}
+
+.valueCard p {
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
     .container {
         flex-direction: column;
+        gap: 60px;
     }
 
-    .imageSection {
+    .imageWrapper {
         width: 100%;
-        height: 350px;
+        height: 400px;
+    }
+
+    .heroTitle {
+        font-size: 56px;
+    }
+
+    .quoteText {
+        font-size: 32px;
+    }
+
+    .valuesGrid {
+        grid-template-columns: 1fr;
+        border: none;
+    }
+
+    .valueCard {
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        margin-bottom: 20px;
+        border-radius: 8px;
     }
 }

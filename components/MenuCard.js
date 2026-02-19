@@ -37,15 +37,8 @@ export default function MenuCard({ dish }) {
 
     const { contextSafe } = useGSAP({ scope: cardRef });
 
-    const handleMouseEnter = contextSafe(() => {
-        gsap.to(cardRef.current, { y: -8, duration: 0.3, ease: 'power1.out' });
-        gsap.to(buttonRef.current, { scale: 1.1, duration: 0.2 });
-    });
-
-    const handleMouseLeave = contextSafe(() => {
-        gsap.to(cardRef.current, { y: 0, duration: 0.3, ease: 'power1.out' });
-        gsap.to(buttonRef.current, { scale: 1, duration: 0.2 });
-    });
+    // Hover effects are handled via CSS for better performance and consistency
+    // with the glassmorphism design.
 
     const handleButtonPress = contextSafe(() => {
         gsap.to(buttonRef.current, { scale: 0.9, duration: 0.1, yoyo: true, repeat: 1 });
@@ -55,8 +48,6 @@ export default function MenuCard({ dish }) {
         <div
             ref={cardRef}
             className={styles.card}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
         >
             <Link href={`/menu/${slug}`} className={styles.cardLink}>
                 <div className={styles.imageWrapper}>
@@ -79,7 +70,16 @@ export default function MenuCard({ dish }) {
                     </div>
 
                     <div className={styles.footer}>
-                        <span className={styles.price}>{price} AED</span>
+                        <div className={styles.priceContainer}>
+                            <span className={styles.price}>₹ {price}</span>
+                            {/* Serving Indicator */}
+                            {dish.serves && (
+                                <span className={styles.serving}>
+                                    <span className={styles.servingIcon}>👤</span> {dish.serves}
+                                </span>
+                            )}
+                        </div>
+
                         <div className={styles.detailsBtnWrapper}>
                             <div
                                 ref={buttonRef}
@@ -90,7 +90,6 @@ export default function MenuCard({ dish }) {
                             >
                                 <ArrowRight size={24} color="var(--dark-navy)" />
                             </div>
-                            <span className={styles.detailsText}>More Details</span>
                         </div>
                     </div>
                 </div>
