@@ -44,7 +44,7 @@ const REGIONS = [
     {
         id: 'karnataka',
         name: 'Karnataka',
-        image: 'images/Karnataka.jpg', // Placeholder
+        image: 'images/karnataka.jpg', // Placeholder
         areas: [
             { id: 'bangalore', name: 'Bangalore (Marathahalli)' },
         ]
