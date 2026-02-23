@@ -226,7 +226,7 @@ export default function ReservationsPage() {
                         {/* Right Side: Image */}
                         <div className={styles.imageContainer}>
                             <Image
-                                src="/images/interior.png"
+                                src="/images/philosophy.jpg"
                                 alt="Restaurant Ambience"
                                 fill
                                 className={styles.image}

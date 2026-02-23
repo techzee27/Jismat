@@ -17,14 +17,14 @@ const categories = [
 ];
 
 const galleryImages = [
-    { id: 1, src: '/images/hero-bg.png', alt: 'Grand Entrance', category: 'interior', span: 'large' },
-    { id: 2, src: '/images/mandi-chicken.png', alt: 'Signature Chicken Mandi', category: 'food', span: 'normal' },
-    { id: 3, src: '/images/interior.png', alt: 'Majlis Seating', category: 'interior', span: 'tall' },
-    { id: 4, src: '/images/mandi-chicken.png', alt: 'Lamb Zurbian Platter', category: 'food', span: 'normal' },
-    { id: 5, src: '/images/hero-bg.png', alt: 'Private Dining Room', category: 'interior', span: 'normal' },
-    { id: 6, src: '/images/interior.png', alt: 'Traditional Decor', category: 'interior', span: 'tall' },
-    { id: 7, src: '/images/mandi-chicken.png', alt: 'Kunafa Dessert', category: 'food', span: 'normal' },
-    { id: 8, src: '/Landing_page_hotel_scroll_frames/ezgif-frame-001.jpg', alt: 'Chef in Action', category: 'events', span: 'large' },
+    { id: 1, src: '/hero_jail_brick.png', alt: 'Grand Entrance', category: 'interior', span: 'large' },
+    { id: 2, src: '/about_process_jail_brick.png', alt: 'Signature Chicken Mandi', category: 'food', span: 'normal' },
+    { id: 3, src: '/menu_header_jail_brick.png', alt: 'Majlis Seating', category: 'interior', span: 'tall' },
+    { id: 4, src: '/about_legacy_jail_brick.png', alt: 'Lamb Zurbian Platter', category: 'food', span: 'normal' },
+    { id: 5, src: '/philosophy_jail_brick.png', alt: 'Private Dining Room', category: 'interior', span: 'normal' },
+    { id: 6, src: '/menu_header_jail_brick.png', alt: 'Traditional Decor', category: 'interior', span: 'tall' },
+    { id: 7, src: '/cta_jail_brick.png', alt: 'Kunafa Dessert', category: 'food', span: 'normal' },
+    { id: 8, src: '/menu_header_jail_brick.png', alt: 'Chef in Action', category: 'events', span: 'large' },
 ];
 
 export default function GalleryPage() {

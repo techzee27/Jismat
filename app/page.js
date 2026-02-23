@@ -237,7 +237,7 @@ export default function Home() {
                     <div className={styles.aboutGrid}>
                         <div className={`${styles.imageWrapper} about-img`}>
                             <Image
-                                src="/philosophy_jail_brick.png"
+                                src="/images/philosophy.jpg"
                                 alt="Traditional Cooking in a Brick Setting"
                                 fill
                                 className="object-cover"

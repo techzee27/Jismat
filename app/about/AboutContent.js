@@ -146,7 +146,7 @@ export default function AboutPage() {
                 <div className={styles.container}>
                     <div className={`${styles.imageWrapper} legacy-image`}>
                         <Image
-                            src="/images/interior.png" // Replace with a more 'historical' looking image if available
+                            src="/images/dining.jpg" // Replace with a more 'historical' looking image if available
                             alt="Ancient Hadramout"
                             fill
                             className="object-cover"
