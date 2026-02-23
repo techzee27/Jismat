@@ -1,13 +1,13 @@
 'use client';
 
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import MenuCard from '../components/MenuCard';
 import { menuItems } from '@/data/menuItems';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, Star, Quote } from 'lucide-react';
+import { ArrowRight, Star, Quote, MapPin } from 'lucide-react';
 import styles from './Home.module.css';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
@@ -19,6 +19,24 @@ if (typeof window !== 'undefined') {
 
 // Filter for signature dishes
 const SIGNATURE_DISHES = menuItems.filter(item => item.isPopular).slice(0, 3);
+
+const BRANCHES = [
+    { id: 'jubilee', city: 'Hyderabad', area: 'Jubilee Hills', address: 'Road No. 36, Shrestha Aura.', mapQuery: 'Jismat Mandi Jubilee Hills Hyderabad' },
+    { id: 'dilsukhnagar', city: 'Hyderabad', area: 'Dilsukhnagar', address: 'VR Colony, Kamala Nagar.', mapQuery: 'Jismat Jail Mandi Dilsukhnagar Hyderabad' },
+    { id: 'kukatpally', city: 'Hyderabad', area: 'Kukatpally', address: '2nd Floor, PNR Enclave, beside Kalamandir.', mapQuery: 'Jismat Mandi Kukatpally Hyderabad' },
+    { id: 'asrao', city: 'Hyderabad', area: 'AS Rao Nagar / Kapra', address: '3rd Floor, Dr. AS Rao Nagar Rd.', mapQuery: 'Jismat Mandi AS Rao Nagar Hyderabad' },
+    { id: 'ameerpet', city: 'Hyderabad', area: 'Ameerpet', address: 'PNR Enclave, Pillar No. 1072.', mapQuery: 'Jismat Mandi Ameerpet Hyderabad' },
+    { id: 'kondapur', city: 'Hyderabad', area: 'Kondapur', address: '3rd Floor, Nagarjuna Ikon, above Croma.', mapQuery: 'Jismat Mandi Kondapur Hyderabad' },
+    { id: 'madinaguda', city: 'Hyderabad', area: 'Madinaguda', address: 'Above Croma Showroom, near Deepthisri Nagar.', mapQuery: 'Jismat Mandi Madinaguda Hyderabad' },
+    { id: 'pragathi', city: 'Hyderabad', area: 'Pragathi Nagar', address: 'Near More Super Market.', mapQuery: 'Jismat Mandi Pragathi Nagar Hyderabad' },
+    { id: 'madhapur', city: 'Hyderabad', area: 'Madhapur', address: 'Kaithalapoor.', mapQuery: 'Kaithalapoor Madhapur Hyderabad' },
+    { id: 'vijayawada', city: 'Andhra Pradesh', area: 'Vijayawada', address: '1st Floor, KBR Heights, Labbipet.', mapQuery: 'Jismat Mandi Vijayawada' },
+    { id: 'vizag', city: 'Andhra Pradesh', area: 'Visakhapatnam', address: '1st Floor, Annapurna Nilayam, Lawsons Bay Colony.', mapQuery: 'Jismat Mandi Visakhapatnam' },
+    { id: 'guntur', city: 'Andhra Pradesh', area: 'Guntur', address: 'Lakshmipuram Main Road.', mapQuery: 'Jismat Mandi Guntur' },
+    { id: 'nellore', city: 'Andhra Pradesh', area: 'Nellore', address: 'Main city area.', mapQuery: 'Jismat Mandi Nellore' },
+    { id: 'tenali', city: 'Andhra Pradesh', area: 'Tenali', address: 'Regional expansion.', mapQuery: 'Jismat Mandi Tenali' },
+    { id: 'bangalore', city: 'Karnataka', area: 'Bangalore (Marathahalli)', address: '2nd/3rd Floor, Venkatadri Plaza, ORR.', mapQuery: 'Jismat Mandi Marathahalli Bangalore' },
+];
 
 const TESTIMONIALS = [
     {
@@ -48,6 +66,7 @@ export default function Home() {
     const mainRef = useRef(null);
     const introRef = useRef(null);
     const heroRef = useRef(null);
+    const [activeBranch, setActiveBranch] = useState(BRANCHES[0]);
 
     useGSAP(() => {
         const tl = gsap.timeline();
@@ -165,7 +184,7 @@ export default function Home() {
     }, { scope: mainRef });
 
     return (
-        <main ref={mainRef} className="bg-[#12141C] min-h-screen text-white selection:bg-[#C9A24D] selection:text-white flex flex-col">
+        <main ref={mainRef} className="bg-[#1c1a1a] min-h-screen text-white selection:bg-[#BC4A3C] selection:text-white flex flex-col">
             <Navbar />
 
             {/* INTRO OVERLAY (Gommage Layer) */}
@@ -181,8 +200,8 @@ export default function Home() {
                 <div className={styles.heroOverlay} />
                 <div className="absolute inset-0 w-full h-[120%] -top-[10%]">
                     <Image
-                        src="/Landing_page_hotel_scroll_frames/ezgif-frame-163.jpg"
-                        alt="Hero Background"
+                        src="/hero_jail_brick.png"
+                        alt="Hero Background - Jail Mandi Theme"
                         fill
                         className="object-cover hero-bg-img"
                         priority
@@ -218,8 +237,8 @@ export default function Home() {
                     <div className={styles.aboutGrid}>
                         <div className={`${styles.imageWrapper} about-img`}>
                             <Image
-                                src="/Landing_page_hotel_scroll_frames/ezgif-frame-163.jpg"
-                                alt="Traditional Cooking"
+                                src="/philosophy_jail_brick.png"
+                                alt="Traditional Cooking in a Brick Setting"
                                 fill
                                 className="object-cover"
                             />
@@ -240,6 +259,50 @@ export default function Home() {
                             <Link href="/about" className={styles.textLink}>
                                 Read Our Story <ArrowRight size={16} />
                             </Link>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* BRANCHES / LOCATIONS SECTION */}
+            <section className={`${styles.sectionDark} branches-section`}>
+                <div className={styles.container}>
+                    <div className={styles.centerHeader} style={{ marginBottom: '48px' }}>
+                        <span className={styles.sectionTag}>Take a Visit</span>
+                        <h2 className={styles.sectionTitle}>Our Hideouts</h2>
+                    </div>
+
+                    <div className={styles.branchesLayout}>
+                        {/* Map Column */}
+                        <div className={styles.mapColumn}>
+                            <iframe
+                                src={`https://maps.google.com/maps?q=${encodeURIComponent(activeBranch.mapQuery)}&t=&z=14&ie=UTF8&iwloc=&output=embed`}
+                                className={styles.mapFrame}
+                                allowFullScreen=""
+                                loading="lazy"
+                                style={{ border: 0 }}
+                                referrerPolicy="no-referrer-when-downgrade"
+                            ></iframe>
+                        </div>
+
+                        {/* Branches List Column */}
+                        <div className={styles.branchesColumn}>
+                            <div className={styles.branchesGrid}>
+                                {BRANCHES.map((branch) => (
+                                    <div
+                                        key={branch.id}
+                                        className={`${styles.branchCard} branch-card-home ${activeBranch.id === branch.id ? styles.activeBranch : ''}`}
+                                        onClick={() => setActiveBranch(branch)}
+                                    >
+                                        <h4 className={styles.branchArea}>{branch.area}</h4>
+                                        <p className={styles.branchCity}>{branch.city}</p>
+                                        <div className={styles.branchAddress}>
+                                            <MapPin size={14} className="inline mr-2 text-[#BC4A3C] shrink-0 mt-[2px]" />
+                                            <span>{branch.address}</span>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -273,7 +336,7 @@ export default function Home() {
             <section className={`${styles.section} testimonials-section`}>
                 <div className={styles.container}>
                     <div className={styles.centerHeader}>
-                        <Star className="text-[#C9A24D] w-8 h-8 mx-auto mb-4 fill-[#C9A24D]" />
+                        <Star className="text-[#BC4A3C] w-8 h-8 mx-auto mb-4 fill-[#BC4A3C]" />
                         <h2 className={styles.sectionTitle}>Guest Stories</h2>
                     </div>
 
@@ -296,8 +359,8 @@ export default function Home() {
             <section className={`${styles.ctaSection} cta-section`}>
                 <div className={styles.ctaOverlay}></div>
                 <Image
-                    src="/Landing_page_hotel_scroll_frames/ezgif-frame-140.jpg"
-                    alt="Background Texture"
+                    src="/cta_jail_brick.png"
+                    alt="Mandi Feast Background"
                     fill
                     className="object-cover"
                     style={{ zIndex: 0 }}

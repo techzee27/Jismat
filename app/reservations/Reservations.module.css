@@ -120,6 +120,57 @@
     opacity: 0.9;
 }
 
+/* Branch Selector Styles */
+.branchSelectWrapper {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.branchLabel {
+    display: block;
+    color: var(--white);
+    font-size: 14px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+}
+
+.branchSelect {
+    width: 100%;
+    padding: 12px 16px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23C9A24D' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+}
+
+.branchSelect:focus {
+    border-color: var(--gold, #BC4A3C);
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.branchSelect option {
+    background-color: #1a1d24;
+    color: #fff;
+}
+
+.branchAddressText {
+    margin-top: 12px;
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
 /* Responsive */
 @media (max-width: 992px) {
     .infoBar {

@@ -5,7 +5,7 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import styles from './PageHeader.module.css';
 
-export default function PageHeader({ title, subtitle, bgImage = '/images/hero-bg.png' }) {
+export default function PageHeader({ title, subtitle, bgImage = '/menu_header_jail_brick.png' }) {
     const containerRef = useRef(null);
     useGSAP(() => {
         const tl = gsap.timeline();
