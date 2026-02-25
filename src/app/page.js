@@ -4,7 +4,7 @@ import { useRef, useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import MenuCard from '../components/MenuCard';
-import { menuItems } from '@/data/menuItems';
+import { menuItems } from '../data/menuItems';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, Star, Quote, MapPin } from 'lucide-react';

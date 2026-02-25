@@ -14,7 +14,7 @@ export default async function Page({ params }) {
     const { orderId } = await params;
 
     // Server-side fetching of order details
-    const dbPath = path.join(process.cwd(), 'data', 'db.json');
+    const dbPath = path.join(process.cwd(), 'src', 'data', 'db.json');
     let orderDetails = null;
     let orderItems = [];
 

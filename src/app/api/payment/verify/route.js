@@ -19,7 +19,7 @@ export async function POST(req) {
         // purely to allow local testing if mock is used. In production, exact match is required.
         const isAuthentic = digest === razorpaySignature || (!process.env.RAZORPAY_KEY_SECRET);
 
-        const dbPath = path.join(process.cwd(), 'data', 'db.json');
+        const dbPath = path.join(process.cwd(), 'src', 'data', 'db.json');
         const dbData = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
         const orderIndex = dbData.orders.findIndex(o => o.id === orderId);
 

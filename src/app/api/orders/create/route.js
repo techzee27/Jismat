@@ -15,7 +15,7 @@ export async function POST(req) {
         }
 
         // Mock DB connection
-        const dbPath = path.join(process.cwd(), 'data', 'db.json');
+        const dbPath = path.join(process.cwd(), 'src', 'data', 'db.json');
         const dbData = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
 
         const orderId = uuidv4();

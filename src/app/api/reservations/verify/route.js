@@ -17,7 +17,7 @@ export async function POST(req) {
 
         const isAuthentic = digest === razorpaySignature || (!process.env.RAZORPAY_KEY_SECRET);
 
-        const dbPath = path.join(process.cwd(), 'data', 'db.json');
+        const dbPath = path.join(process.cwd(), 'src', 'data', 'db.json');
 
         if (fs.existsSync(dbPath)) {
             const dbData = JSON.parse(fs.readFileSync(dbPath, 'utf8'));

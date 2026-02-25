@@ -28,7 +28,7 @@ export async function POST(req) {
         const razorpayOrder = await instance.orders.create(options);
 
         // Optionally, could store to db.json here (skipping for simplicity now, or just adding to reservations array if exists)
-        const dbPath = path.join(process.cwd(), 'data', 'db.json');
+        const dbPath = path.join(process.cwd(), 'src', 'data', 'db.json');
         let dbData = { orders: [], orderItems: [], reservations: [] };
 
         try {
