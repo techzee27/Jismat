@@ -1,0 +1,101 @@
+{
+  "orders": [
+    {
+      "id": "f5573dee-86e9-4934-987a-1b43cfc0247b",
+      "userDetails": {
+        "name": "Zeeshan Mohammed",
+        "phone": "7013971764",
+        "address": "H.No. 9-58/57, Royal Colony, Balapur Hyderabad Telangana",
+        "city": "Hyderabad",
+        "pincode": "500005",
+        "notes": ""
+      },
+      "totalAmount": 1152.5,
+      "subtotal": 1050,
+      "gst": 52.5,
+      "deliveryFee": 50,
+      "paymentMethod": "online",
+      "paymentStatus": "Paid",
+      "orderStatus": "Confirmed",
+      "timestamp": "2026-02-25T16:51:57.454Z"
+    },
+    {
+      "id": "e21b9c4d-8f2e-4143-b2ab-73604bda28b0",
+      "userDetails": {
+        "name": "Zeeshan Mohammed",
+        "phone": "7013971764",
+        "address": "H.No. 9-58/57, Royal Colony, Balapur Hyderabad Telangana",
+        "city": "Hyderabad",
+        "pincode": "500005",
+        "notes": "extra spicy"
+      },
+      "totalAmount": 785,
+      "subtotal": 700,
+      "gst": 35,
+      "deliveryFee": 50,
+      "paymentMethod": "cod",
+      "paymentStatus": "COD - Pending",
+      "orderStatus": "Pending",
+      "timestamp": "2026-02-25T16:57:25.933Z"
+    },
+    {
+      "id": "d0ec3bec-0df0-4f78-8246-8da64b2c5517",
+      "userDetails": {
+        "name": "Zeeshan Mohammed",
+        "phone": "7013971764",
+        "address": "H.No. 9-58/57, Royal Colony, Balapur Hyderabad Telangana",
+        "city": "Hyderabad",
+        "pincode": "500005",
+        "notes": ""
+      },
+      "totalAmount": 1152.5,
+      "subtotal": 1050,
+      "gst": 52.5,
+      "deliveryFee": 50,
+      "paymentMethod": "online",
+      "paymentStatus": "Paid",
+      "orderStatus": "Confirmed",
+      "timestamp": "2026-02-25T17:13:58.451Z"
+    }
+  ],
+  "orderItems": [
+    {
+      "id": "362c5da9-ffbc-4cfa-8d88-0d171c687439",
+      "orderId": "f5573dee-86e9-4934-987a-1b43cfc0247b",
+      "foodId": "chicken-mandi",
+      "quantity": 3,
+      "price": 350
+    },
+    {
+      "id": "c6955017-ca28-4c0b-ba91-6f50f9cf2622",
+      "orderId": "e21b9c4d-8f2e-4143-b2ab-73604bda28b0",
+      "foodId": "chicken-mandi",
+      "quantity": 2,
+      "price": 350
+    },
+    {
+      "id": "2c50651d-f4ed-45ac-a8ba-e69fb906d68a",
+      "orderId": "d0ec3bec-0df0-4f78-8246-8da64b2c5517",
+      "foodId": "chicken-mandi",
+      "quantity": 3,
+      "price": 350
+    }
+  ],
+  "reservations": [
+    {
+      "id": "f981caf7-c0ac-479a-af09-9843089f0083",
+      "name": "Zeeshan Mohammed",
+      "phone": "1234567890",
+      "email": "techzee2723@gmail.com",
+      "date": "2026-02-25",
+      "time": "23:50",
+      "guests": "4",
+      "requests": "chicken salad",
+      "advancePayment": "500",
+      "amount": 500,
+      "paymentStatus": "Paid",
+      "status": "Confirmed",
+      "timestamp": "2026-02-25T17:20:03.286Z"
+    }
+  ]
+}

@@ -2,7 +2,8 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ShoppingCart } from 'lucide-react';
+import { useCartStore } from '../store/cartStore';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import styles from './Navbar.module.css';
@@ -13,6 +14,12 @@ export default function Navbar() {
     const menuRef = useRef(null);
     const tl = useRef(null);
     const containerRef = useRef(null);
+    const items = useCartStore(state => state.items);
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -73,6 +80,17 @@ export default function Navbar() {
                         <Link href="/reservations" className={styles.reservationBtn}>
                             Reservations
                         </Link>
+                        <Link href="/cart" style={{ display: 'flex', alignItems: 'center', color: 'var(--white)', marginLeft: '10px', position: 'relative' }}>
+                            <ShoppingCart size={24} color="var(--gold)" />
+                            {mounted && items.length > 0 && (
+                                <span style={{
+                                    position: 'absolute', top: '-8px', right: '-12px', background: '#BC4A3C', color: 'white',
+                                    borderRadius: '50%', width: '20px', height: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: 'bold'
+                                }}>
+                                    {items.length}
+                                </span>
+                            )}
+                        </Link>
                     </div>
 
                     {/* Mobile Toggle */}
@@ -108,6 +126,14 @@ export default function Navbar() {
                         onClick={() => setIsOpen(false)}
                     >
                         Book a Table
+                    </Link>
+                    <Link
+                        href="/cart"
+                        className={styles.mobileLink}
+                        onClick={() => setIsOpen(false)}
+                        style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--gold)' }}
+                    >
+                        <ShoppingCart size={20} /> Cart ({mounted ? items.length : 0})
                     </Link>
                 </div>
             </div>

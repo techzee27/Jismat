@@ -13,7 +13,7 @@ if (typeof window !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger);
 }
 
-export default function MenuCard({ dish }) {
+export default function MenuCard({ dish, branchId }) {
     const { name, description, price, image, isPopular, slug } = dish;
     const cardRef = useRef();
     const buttonRef = useRef();
@@ -49,7 +49,7 @@ export default function MenuCard({ dish }) {
             ref={cardRef}
             className={styles.card}
         >
-            <Link href={`/menu/${slug}`} className={styles.cardLink}>
+            <Link href={branchId ? `/menu/${slug}?branch=${branchId}` : `/menu/${slug}`} className={styles.cardLink}>
                 <div className={styles.imageWrapper}>
                     <div className={styles.imageContainer}>
                         <Image

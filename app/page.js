@@ -269,7 +269,7 @@ export default function Home() {
                 <div className={styles.container}>
                     <div className={styles.centerHeader} style={{ marginBottom: '48px' }}>
                         <span className={styles.sectionTag}>Take a Visit</span>
-                        <h2 className={styles.sectionTitle}>Our Hideouts</h2>
+                        <h2 className={styles.sectionTitle}>Our Cells</h2>
                     </div>
 
                     <div className={styles.branchesLayout}>
@@ -319,7 +319,7 @@ export default function Home() {
                     <div className={styles.grid3}>
                         {SIGNATURE_DISHES.map((dish) => (
                             <div key={dish.id} className="menu-item">
-                                <MenuCard dish={dish} />
+                                <MenuCard dish={dish} branchId={activeBranch?.id} />
                             </div>
                         ))}
                     </div>

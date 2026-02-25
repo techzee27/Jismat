@@ -92,28 +92,36 @@ export default function AboutPage() {
         });
 
         // Process Steps Stagger
-        gsap.from(".process-card", {
-            y: 50,
-            opacity: 0,
-            duration: 0.8,
-            stagger: 0.2,
-            scrollTrigger: {
-                trigger: processRef.current,
-                start: "top 75%",
+        gsap.fromTo(".process-card",
+            { y: 50, opacity: 0 },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                stagger: 0.2,
+                scrollTrigger: {
+                    trigger: processRef.current,
+                    start: "top 75%",
+                },
+                clearProps: "all"
             }
-        });
+        );
 
         // Value Cards Flip/Reveal
-        gsap.from(".value-card", {
-            scale: 0.8,
-            opacity: 0,
-            duration: 0.6,
-            stagger: 0.1,
-            scrollTrigger: {
-                trigger: ".values-section",
-                start: "top 80%",
+        gsap.fromTo(".value-card",
+            { scale: 0.8, opacity: 0 },
+            {
+                scale: 1,
+                opacity: 1,
+                duration: 0.6,
+                stagger: 0.1,
+                scrollTrigger: {
+                    trigger: ".values-section",
+                    start: "top 80%",
+                },
+                clearProps: "all"
             }
-        });
+        );
 
     }, { scope: containerRef });
 

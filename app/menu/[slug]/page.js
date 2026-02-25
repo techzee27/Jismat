@@ -8,6 +8,7 @@ import Button from '../../../components/Button';
 import { menuItems } from '../../../data/menuItems';
 import styles from './DishDetails.module.css';
 import { ArrowLeft, CheckCircle } from 'lucide-react';
+import ReservationAction from './ReservationAction';
 
 export async function generateMetadata({ params }) {
     const { slug } = await params;
@@ -79,9 +80,7 @@ export default async function DishDetails({ params }) {
                         </div>
 
                         <div className={styles.actions}>
-                            <Link href="/reservations" style={{ width: '100%' }}>
-                                <Button variant="primary">Add to Reservation</Button>
-                            </Link>
+                            <ReservationAction dish={dish} />
                         </div>
                     </div>
                 </div>

@@ -213,7 +213,7 @@ export default function MenuPage() {
                             <div className={styles.grid}>
                                 {filteredItems.map((item) => (
                                     <div key={item.id} className={styles.gridItem}>
-                                        <MenuCard dish={item} />
+                                        <MenuCard dish={item} branchId={activeArea?.id} />
                                     </div>
                                 ))}
                             </div>
